@@ -1,0 +1,36 @@
+name: bloom-release
+on:
+  push:
+    paths:
+      - package.xml
+      - "*/package.xml"
+    branches:
+      - master
+
+jobs:
+  bloom-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Bloom Release
+        id: bloom
+        uses: at-wat/bloom-release-action@v0
+        with:
+          ros_distro: rolling humble jazzy
+          github_token_bloom: ${{ secrets.BLOOM_GITHUB_TOKEN }}
+          github_user: gstavrinos
+          git_user: George Stavrinos
+          git_email: gstavrinos@protonmail.com
+          release_repository_push_url: https://github.com/ros2-gbp/${{ github.event.repository.name }}-release.git
+          tag_and_release: true
+          debug_bloom: true
+          open_pr: true
+      - name: Create GitHub Release
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create \
+          ${{ steps.bloom.outputs.version }} \
+          --title "${{ steps.bloom.outputs.version }}"

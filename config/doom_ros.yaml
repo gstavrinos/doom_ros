@@ -1,0 +1,17 @@
+doom_ros:
+  ros__parameters:
+    width: 320
+    height: 200
+    doom_image: "doom_image"
+    joy_topic: "joy"
+    left_key_buttons_index: 13
+    right_key_buttons_index: 14
+    up_key_buttons_index: 11
+    down_key_buttons_index: 12
+    strafe_left_key_buttons_index: 9
+    strafe_right_key_buttons_index: 10
+    fire_key_buttons_index: 1
+    use_key_buttons_index: 0
+    run_key_buttons_index: 3
+    enter_key_buttons_index: 6
+    escape_key_buttons_index: 4

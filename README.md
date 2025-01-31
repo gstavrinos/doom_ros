@@ -16,8 +16,9 @@ Doom can run anywhere. Now it runs on ROS too.
 # Notes
 
 - The package has been tested with the following controllers:
-  - 8bitDo SN30+ Pro
+  - 8BitDo SN30 Pro+
   - Logitech F710
+  - DUALSHOCK 4 (PS4)
 - In case you use a controller that has not been tested and the inputs are off, consider making a PR :)
 - Extra files on `data` folder:
   - Repository resources, videos and images

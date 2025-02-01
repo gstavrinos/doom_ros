@@ -24,7 +24,7 @@ def generate_launch_description():
             Node(
                 package="doom_ros",
                 executable="doom_ros.py",
-                name="doom_ros_node",
+                name="doom_ros",
                 parameters=[config_file_path],
             ),
         ]

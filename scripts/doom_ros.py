@@ -163,8 +163,6 @@ class DoomROS(Node):
             Joy, self.joy_topic, self.joy_callback, 60
         )
         self.last_btn_states = {}
-        # for i in self.key_mappings.values():
-        #     self.last_btn_states[i] = 0
         for _, index in self.key_mappings.items():
             self.last_btn_states[index] = 0
         self.joy_commands = []
@@ -185,7 +183,6 @@ class DoomROS(Node):
         self.next_frame.header.stamp = self.get_clock().now().to_msg()
         self.next_frame.data = bytes(pixels)
         self.publisher_.publish(self.next_frame)
-        # return None
 
     def get_key(self):
         with self.joy_mutex:
@@ -213,7 +210,6 @@ def main(args=None):
         doom_ros_node.draw_frame,
         doom_ros_node.get_key,
     )
-    # TODO: switch to the shareware version
     cdg.main(argv=["cydoomgeneric", "-iwad", package_path + "/data/DOOM1.WAD"])
 
     doom_ros_node.destroy_node()

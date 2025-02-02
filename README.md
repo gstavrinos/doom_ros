@@ -15,11 +15,12 @@ Doom can run anywhere. Now it runs on ROS too.
 
 # Docker
 1. [Install Docker Engine](https://docs.docker.com/engine/install/)
-2. Build Image & Launch Container: 
+2. Enable Docker for xhost: `xhost +local:docker`
+3. Build Image & Launch Container: 
 ```bash
 docker compose up --build
 ```
-3. Stop Container CTRL+C
+4. Stop Container CTRL+C
 ```bash
 docker compose down
 ```

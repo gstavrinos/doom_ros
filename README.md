@@ -13,6 +13,17 @@ Doom can run anywhere. Now it runs on ROS too.
 
 `ros2 launch doom_ros doom_ros.launch.py`
 
+# Docker
+1. [Install Docker Engine](https://docs.docker.com/engine/install/)
+2. Build Image & Launch Container: 
+```bash
+docker compose up --build
+```
+3. Stop Container CTRL+C
+```bash
+docker compose down
+```
+
 # Notes
 
 - The package has been tested with the following controllers:

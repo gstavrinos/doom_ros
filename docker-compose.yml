@@ -1,0 +1,20 @@
+# Doom ROS
+services:
+  doom_ros:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: doom_ros
+    container_name: doom_ros
+    privileged: true  # Allows access to USB devices and other system resources
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"  # Maps USB devices into the container
+    environment:
+      - DISPLAY  # Enables GUI forwarding for ROS GUI applications
+      - QT_X11_NO_MITSHM=1  # Fixes shared memory issue with X11
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix  # Allows GUI applications to use the host X server
+    command: >
+      bash -c "source /opt/ros/jazzy/setup.bash && 
+               source /workspace/install/setup.bash && 
+               ros2 launch doom_ros doom_ros.launch.py"
